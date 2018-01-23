@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.0.0)
 project(Boost-CMake)
 
 option(BOOST_DOWNLOAD_TO_BINARY_DIR "Prefer downloading Boost to the binary directory instead of source directory" OFF)
-set(BOOST_URL "https://github.com/Orphis/boost-cmake/releases/download/v1.64.0/boost_1_64_0.tar.xz" CACHE STRING "Boost download URL")
-set(BOOST_URL_SHA256 "d964dfdab2f73d04a8f52303f1b141344447b78ab85dc79da78fa167fdd807f5" CACHE STRING "Boost download URL SHA256 checksum")
+set(BOOST_URL "https://dl.bintray.com/boostorg/release/1.66.0/source/boost_1_66_0.tar.gz" CACHE STRING "Boost download URL")
+set(BOOST_URL_SHA256 "bd0df411efd9a585e5a2212275f8762079fed8842264954675a4fddc46cfcf60" CACHE STRING "Boost download URL SHA256 checksum")
 set(BOOST_ARCHIVE_DIRECTORY "" CACHE DIRECTORY "Use the specified local directory to search for boost archives instead of downloading them" )
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules)
@@ -31,34 +31,34 @@ set(BOOST_LIBS_REQUIRED
 )
 set(BOOST_LIBS_OPTIONAL
   # Compiled libs
-  atomic
+  #atomic
   chrono
-  container
+  #container
   context
   coroutine
-  date_time
-  exception
-  fiber
-  filesystem
-  graph
-  iostreams
-  locale
-  log
-  math
-  mpi
-  graph_parallel # depends on mpi, so needs to be put after it
-  program_options
+  #date_time
+  #exception
+  #fiber
+  #filesystem
+  #graph
+  #iostreams
+  #locale
+  #log
+  #math
+  #mpi
+  #graph_parallel # depends on mpi, so needs to be put after it
+  #program_options
   #python # complex module
-  random
-  regex
-  serialization
-  signals
+  #random
+  #regex
+  #serialization
+  #signals
   system
   test
   thread
   timer
-  type_erasure
-  wave
+  #type_erasure
+  #wave
 )
 
 foreach(lib ${BOOST_LIBS_REQUIRED})

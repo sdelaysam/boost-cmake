@@ -93,13 +93,18 @@ if(NOT BOOST_SOURCE OR NOT EXISTS "${BOOST_SOURCE}")
       WORKING_DIRECTORY "${EXTRACT_PATH}.tmp"
       OUTPUT_QUIET
     )
-    file(RENAME "${EXTRACT_PATH}.tmp" "${EXTRACT_PATH}")
+    #file(RENAME "${EXTRACT_PATH}.tmp" "${EXTRACT_PATH}")
+
+    file(GLOB DOWNLOAD_EXTRACT_PATH "${EXTRACT_PATH}.tmp/boost_*")
+    file(RENAME "${DOWNLOAD_EXTRACT_PATH}" "${EXTRACT_PATH}")
+    file(REMOVE "${EXTRACT_PATH}.tmp")
   endif()
 
-  file(GLOB download_boost_root "${EXTRACT_PATH}/boost_*")
-  if(download_boost_root)
-    set(BOOST_SOURCE "${download_boost_root}" CACHE STRING "Boost location" FORCE)
-  endif()
+  #file(GLOB download_boost_root "${EXTRACT_PATH}/boost_*")
+  #if(download_boost_root)
+  #  set(BOOST_SOURCE "${download_boost_root}" CACHE STRING "Boost location" FORCE)
+  #endif()
+  set(BOOST_SOURCE "${EXTRACT_PATH}" CACHE STRING "Boost location" FORCE)
 endif()
 
 # Detect Boost version
